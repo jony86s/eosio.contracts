@@ -1,11 +1,11 @@
 {
-    "eosio-dot-contracts":
+    &quot;eosio-dot-contracts&quot;:
     {
-        "pipeline-branch": "master",
-        "dependencies": // dependencies to pull for a build of contracts, by branch, tag, or commit hash
+        &quot;pipeline-branch&quot;: &quot;master&quot;,
+        &quot;dependencies&quot;: // dependencies to pull for a build of contracts, by branch, tag, or commit hash
         {
-            "eosio": "release/2.0.x",
-            "eosio.cdt": "release/1.7.x"
+            &quot;eosio&quot;: &quot;release/2.0.x&quot;,
+            &quot;eosio.cdt&quot;: &quot;release/1.7.x&quot;
         }
     }
 }
