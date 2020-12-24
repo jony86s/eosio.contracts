@@ -18,6 +18,10 @@ namespace eosiosystem {
    using eosio::public_key;
 
    /**
+    * @addtogroup eosiosystem
+    * @{
+    */
+   /**
     * A weighted permission.
     *
     * Defines a weighted permission, that is a permission which has a weight associated.
@@ -127,6 +131,7 @@ namespace eosiosystem {
          using eosio::contract::contract;
 
          /**
+          * @{
           * These actions map one-on-one with the ones defined in core layer of EOSIO, that's where their implementation
           * actually is done.
           * They are present here only so they can show up in the abi file and thus user can send them
@@ -248,6 +253,8 @@ namespace eosiosystem {
          [[eosio::action]]
          void setcode( const name& account, uint8_t vmtype, uint8_t vmversion, const std::vector<char>& code ) {}
 
+         /** @}*/
+
          using newaccount_action = eosio::action_wrapper<"newaccount"_n, &native::newaccount>;
          using updateauth_action = eosio::action_wrapper<"updateauth"_n, &native::updateauth>;
          using deleteauth_action = eosio::action_wrapper<"deleteauth"_n, &native::deleteauth>;
@@ -257,4 +264,5 @@ namespace eosiosystem {
          using setcode_action = eosio::action_wrapper<"setcode"_n, &native::setcode>;
          using setabi_action = eosio::action_wrapper<"setabi"_n, &native::setabi>;
    };
+   /** @}*/ // @addtogroup eosiosystem
 }
