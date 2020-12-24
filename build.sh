@@ -2,21 +2,21 @@
 set -eo pipefail
 
 function usage() {
-   printf "Usage: $0 OPTION...
+   printf &quot;Usage: $0 OPTION...
   -e DIR      Directory where EOSIO is installed. (Default: $HOME/eosio/X.Y)
   -c DIR      Directory where EOSIO.CDT is installed. (Default: /usr/local/eosio.cdt)
   -t          Build unit tests.
   -y          Noninteractive mode (Uses defaults for each prompt.)
   -h          Print this help menu.
-   \\n" "$0" 1>&2
+   \\n&quot; &quot;$0&quot; 1&gt;&amp;2
    exit 1
 }
 
 BUILD_TESTS=false
 
 if [ $# -ne 0 ]; then
-  while getopts "e:c:tyh" opt; do
-    case "${opt}" in
+  while getopts &quot;e:c:tyh&quot; opt; do
+    case &quot;${opt}&quot; in
       e )
         EOSIO_DIR_PROMPT=$OPTARG
       ;;
@@ -34,11 +34,11 @@ if [ $# -ne 0 ]; then
         usage
       ;;
       ? )
-        echo "Invalid Option!" 1>&2
+        echo &quot;Invalid Option!&quot; 1&gt;&amp;2
         usage
       ;;
       : )
-        echo "Invalid Option: -${OPTARG} requires an argument." 1>&2
+        echo &quot;Invalid Option: -${OPTARG} requires an argument.&quot; 1&gt;&amp;2
         usage
       ;;
       * )
@@ -61,24 +61,24 @@ fi
 cdt-directory-prompt
 
 # Include CDT_INSTALL_DIR in CMAKE_FRAMEWORK_PATH
-echo "Using EOSIO.CDT installation at: $CDT_INSTALL_DIR"
-export CMAKE_FRAMEWORK_PATH="${CDT_INSTALL_DIR}:${CMAKE_FRAMEWORK_PATH}"
+echo &quot;Using EOSIO.CDT installation at: $CDT_INSTALL_DIR&quot;
+export CMAKE_FRAMEWORK_PATH=&quot;${CDT_INSTALL_DIR}:${CMAKE_FRAMEWORK_PATH}&quot;
 
 if [[ ${BUILD_TESTS} == true ]]; then
    # Ensure eosio version is appropriate.
    nodeos-version-check
 
    # Include EOSIO_INSTALL_DIR in CMAKE_FRAMEWORK_PATH
-   echo "Using EOSIO installation at: $EOSIO_INSTALL_DIR"
-   export CMAKE_FRAMEWORK_PATH="${EOSIO_INSTALL_DIR}:${CMAKE_FRAMEWORK_PATH}"
+   echo &quot;Using EOSIO installation at: $EOSIO_INSTALL_DIR&quot;
+   export CMAKE_FRAMEWORK_PATH=&quot;${EOSIO_INSTALL_DIR}:${CMAKE_FRAMEWORK_PATH}&quot;
 fi
 
-printf "\t=========== Building eosio.contracts ===========\n\n"
-RED='\033[0;31m'
-NC='\033[0m'
+printf &quot;\t=========== Building eosio.contracts ===========\n\n&quot;
+RED=&#39;\033[0;31m&#39;
+NC=&#39;\033[0m&#39;
 CPU_CORES=$(getconf _NPROCESSORS_ONLN)
 mkdir -p build
-pushd build &> /dev/null
+pushd build &amp;&gt; /dev/null
 cmake -DBUILD_TESTS=${BUILD_TESTS} ../
 make -j $CPU_CORES
-popd &> /dev/null
+popd &amp;&gt; /dev/null
