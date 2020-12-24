@@ -1,39 +1,39 @@
 {
-  "name": "eosio.contracts",
-  "generators": [
+  &quot;name&quot;: &quot;eosio.contracts&quot;,
+  &quot;generators&quot;: [
     {
-      "name": "collate_markdown",
-      "options": {
-        "docs_dir": "docs"
+      &quot;name&quot;: &quot;collate_markdown&quot;,
+      &quot;options&quot;: {
+        &quot;docs_dir&quot;: &quot;docs&quot;
       }
     },
     {
-      "name": "mdjavadoc",
-      "options": {
-        "source_dirs": [
-          "contracts/eosio.token/include/eosio.token/",
-          "contracts/eosio.wrap/include/eosio.wrap/",
-          "contracts/eosio.bios/include/eosio.bios/",
-          "contracts/eosio.system/include/eosio.system/",
-          "contracts/eosio.msig/include/eosio.msig/"
+      &quot;name&quot;: &quot;mdjavadoc&quot;,
+      &quot;options&quot;: {
+        &quot;source_dirs&quot;: [
+          &quot;contracts/eosio.token/include/eosio.token/&quot;,
+          &quot;contracts/eosio.wrap/include/eosio.wrap/&quot;,
+          &quot;contracts/eosio.bios/include/eosio.bios/&quot;,
+          &quot;contracts/eosio.system/include/eosio.system/&quot;,
+          &quot;contracts/eosio.msig/include/eosio.msig/&quot;
         ],
-        "output_dir": "action-reference"
+        &quot;output_dir&quot;: &quot;action-reference&quot;
       }
     }
   ],
-  "skip_default_filters": true,
-  "filters": [
+  &quot;skip_default_filters&quot;: true,
+  &quot;filters&quot;: [
     {
-      "name": "sanitize",
-      "options": {
-        "exclude": ["action-reference"]
+      &quot;name&quot;: &quot;sanitize&quot;,
+      &quot;options&quot;: {
+        &quot;exclude&quot;: [&quot;action-reference&quot;]
       }
     },
     {
-      "name": "capitalize",
-      "options": {
-        "mode": "all",
-        "exclude": ["action-reference"]
+      &quot;name&quot;: &quot;capitalize&quot;,
+      &quot;options&quot;: {
+        &quot;mode&quot;: &quot;all&quot;,
+        &quot;exclude&quot;: [&quot;action-reference&quot;]
       }
     }
   ]
